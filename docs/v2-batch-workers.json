@@ -1,0 +1,22 @@
+[
+  {
+    "attempt": 1,
+    "threadId": "01a0883b-aed3-7792-90cf-aed04c2f6194",
+    "container": "chip-rename-v2-01",
+    "status": "infra_error",
+    "reason": "Workspace owner spend cap blocked model execution",
+    "duration_seconds": 5.849,
+    "assistant_response": false,
+    "graded": false
+  },
+  {
+    "attempt": 2,
+    "threadId": "01a0883b-c77d-7aa0-acca-e0f14c0ebdf6",
+    "container": "chip-rename-v2-02",
+    "status": "infra_error",
+    "reason": "Workspace owner spend cap blocked model execution",
+    "duration_seconds": 9.137,
+    "assistant_response": false,
+    "graded": false
+  }
+]

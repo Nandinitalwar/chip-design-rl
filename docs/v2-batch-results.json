@@ -1,5 +1,5 @@
 {
-  "status": "starting",
+  "status": "blocked-spend-cap",
   "freeze": {
     "task_id": "rtl-rename-recovery-v2",
     "status": "frozen-for-one-five-attempt-batch",
@@ -16,9 +16,35 @@
     "review": "docs/rename-v2-implementation-review.md",
     "harbor_preflight": "docs/rename-v2-harbor-preflight.json"
   },
-  "attempts": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "threadId": "01a0883b-aed3-7792-90cf-aed04c2f6194",
+      "container": "chip-rename-v2-01",
+      "status": "infra_error",
+      "reason": "Workspace owner spend cap blocked model execution",
+      "duration_seconds": 5.849,
+      "assistant_response": false,
+      "graded": false
+    },
+    {
+      "attempt": 2,
+      "threadId": "01a0883b-c77d-7aa0-acca-e0f14c0ebdf6",
+      "container": "chip-rename-v2-02",
+      "status": "infra_error",
+      "reason": "Workspace owner spend cap blocked model execution",
+      "duration_seconds": 9.137,
+      "assistant_response": false,
+      "graded": false
+    }
+  ],
   "valid_outcomes": 0,
   "successes": 0,
   "failures": 0,
-  "infra_errors": 0
+  "infra_errors": 2,
+  "launched_attempts": 2,
+  "unlaunched_attempts": 3,
+  "pass_rate": null,
+  "exact_error": "You hit your spend cap set by the owner of your workspace. Ask an owner to increase your spend cap to continue.",
+  "note": "Both fresh tasks failed before any assistant response or tool call. No candidate grading performed. Do not count as model failures. Remaining attempts not launched; no replacements or cap changes authorized."
 }

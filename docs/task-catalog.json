@@ -41,6 +41,20 @@
       "difficulty_status": "uncalibrated",
       "expert_review": "Contract and implementation review complete; retained-control repairs independently verified",
       "release_status": "frozen for calibration; no model trials"
+    },
+    {
+      "task_id": "rtl-rename-recovery-v2",
+      "intended_primary": "RTL-STATE",
+      "intended_secondary": [
+        "RTL-ORDER",
+        "RTL-ALIAS",
+        "RTL-HANDSHAKE",
+        "RTL-PARAM"
+      ],
+      "observed_failure_modes": [],
+      "difficulty_status": "unmeasured: both launched attempts blocked by workspace spend cap",
+      "expert_review": "final source/hash review closed;4positives\u00d76configs and21negativecases validated",
+      "release_status": "frozen; model batch paused on spend cap"
     }
   ],
   "target_success_rate": 0.2,
