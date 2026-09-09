@@ -55,3 +55,5 @@ Updated: 2026-09-09. Owner: user. Repository: https://github.com/Nandinitalwar/c
 - User requested visible sidebar workers. Created four separate tasks under Chip-design swarm; this original task remains orchestrator. Worker IDs recorded in SWARM.md. Trial ownership handed over while existing campaigns continue; no duplicate runs launched.
 
 - Follow-up independent LLM judge reviewed the running campaign snapshot (2026-09-09T20:39:53Z: one valid skid success) and wrote docs/expert-followup.md. Frozen functional calibration may continue; synthesis enforcement, independently derived grader checks, reward isolation evidence and completed task-specific calibration remain release gaps. No task assets or model trials were changed by this review.
+
+- RTL author drafted docs/next-task-proposals.md: per-channel credit accounting, tagged in-order retirement, and byte-write merge/read forwarding. These are proposal-only, uncalibrated candidates; existing task files remain frozen. Suggested next authoring assignment is rtl-vc-credit, pending orchestrator selection.
