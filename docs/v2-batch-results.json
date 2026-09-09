@@ -1,0 +1,24 @@
+{
+  "status": "starting",
+  "freeze": {
+    "task_id": "rtl-rename-recovery-v2",
+    "status": "frozen-for-one-five-attempt-batch",
+    "task_hash": "9fe8834fbd145887ac0e994640da9c332a0e20620472e4594f34bd61a033b6c3",
+    "target_success_rate": 0.2,
+    "model": "gpt-6-astra",
+    "reasoning_effort": "high",
+    "max_attempts": 5,
+    "max_concurrent": 2,
+    "post_batch": "pause regardless of outcome",
+    "image": "chip-rl-rename-recovery-v2:author-review",
+    "image_id": "sha256:567770e7c43368c550dea47ef88b14ae94f247801656dce824777c85111c9a72",
+    "harness": "fresh Codex desktop tasks; candidate-only Docker container",
+    "review": "docs/rename-v2-implementation-review.md",
+    "harbor_preflight": "docs/rename-v2-harbor-preflight.json"
+  },
+  "attempts": [],
+  "valid_outcomes": 0,
+  "successes": 0,
+  "failures": 0,
+  "infra_errors": 0
+}

@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "kind": "Harbor oracle preflight; no model call",
+  "reward": {
+    "reward": 1.0
+  },
+  "exception": null,
+  "job": "work/harbor/rename-v2-oracle-preflight",
+  "tested_files_sha256": {
+    "tasks/rtl-rename-recovery-v2/instruction.md": "2b9b8f3f4af5f7cc371d7c4411fe5008c9bfd19c080fc00478aab6ecaa68ebc7",
+    "tasks/rtl-rename-recovery-v2/task.toml": "64be5c8d8ac6fb1438f2c40e904a1498d60756eae54788515a841e4d2501c550",
+    "tasks/rtl-rename-recovery-v2/tests/grader.py": "ac61981038a5cbed354cdddda60782592fdf16037fc0038afc579956678c91b4",
+    "tasks/rtl-rename-recovery-v2/tests/protocol.py": "08803ca72ff9638b685dad518c05b1f4c53180b542c606f4f158337dd5b0035f",
+    "tasks/rtl-rename-recovery-v2/tests/reference.py": "c2b39d32e3549205a7c74f2bb4fab705b40c5dd2a4e1f135be4af3c135b6de2c",
+    "tasks/rtl-rename-recovery-v2/tests/test.sh": "911db6273743e618b4e5284dadc3495a7a5b6b331a6ecf466dccc643cc977862",
+    "tasks/rtl-rename-recovery-v2/tests/schedules.py": "15c9ee026155b32879db24e261a791b3137c98989136d1ce70e6a2c58fbbf2a0",
+    "tasks/rtl-rename-recovery-v2/solution/ownership.sv": "198a54020a91fa03ddb47676207da15481c688f382e3d128f1a617d34b4a9fee",
+    "tasks/rtl-rename-recovery-v2/solution/solve.sh": "23f159ffdddc59e73d156e8b9436bc3190cf4a9ddabb69cda76fae1e92270a22",
+    "tasks/rtl-rename-recovery-v2/solution/design.sv": "86ac878ea134656d3fa041bdcfb9dabe4c3c6d451766145e30488ec0f1ee9a28",
+    "tasks/rtl-rename-recovery-v2/solution/map_bypass.sv": "91c2826684ae0658436037e2901ec2352ece4de488ee4b9cbacdc70bb9f998b1",
+    "tasks/rtl-rename-recovery-v2/environment/Dockerfile": "814d2e27c7ed0020c418951d20b3f94fa4d1d0cb91b5617b53945cea81bd258c",
+    "tasks/rtl-rename-recovery-v2/environment/repo/ownership.sv": "90ba3563623798fcb7209c847c5e05c9149179bfb6f80b87899dccd08fe0e0f5",
+    "tasks/rtl-rename-recovery-v2/environment/repo/design.sv": "5091db26761fe5b0a5e54294dc82e8934032cfd454e9f1f3584ce434a708b709",
+    "tasks/rtl-rename-recovery-v2/environment/repo/README.md": "d91642dc14c7c9a43a1c6d3155b2a2013dab78c8e73328ae6ddb332b9293f184",
+    "tasks/rtl-rename-recovery-v2/environment/repo/map_bypass.sv": "77d043f73225ee30074d69e771198cf1f727d2135ded092c801fb74656936de3",
+    "tasks/rtl-rename-recovery-v2/environment/repo/smoke.sv": "4cd07d2082b071a6f008687d6cb00cab4a017057cbc544a4a2e6a45a40eca94f"
+  },
+  "isolation": {
+    "controller_uid": 0,
+    "candidate_agent_user": "node",
+    "tool_and_runtime_uid": 65534,
+    "reward_directory_mode": "0o700",
+    "reward_directory_uid": 0,
+    "simulation_source": "yosys_netlist_only",
+    "reference_expectations_in_simulator": false
+  }
+}

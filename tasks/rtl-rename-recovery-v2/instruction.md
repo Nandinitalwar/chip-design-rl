@@ -1,20 +1,10 @@
-# Rename recovery v2 — proposed contract
+# Implement two-wide rename recovery with move elimination
 
-Status: draft 4, final root scope is move-alias-only; contract closed by independent judge for implementation; no difficulty guarantee. Proposed task: `rtl-rename-recovery-v2`. This is a new candidate package; the frozen v1 and all blind evidence remain unchanged. Intended batch objective is 1 pass in 5 fresh independent trials, not a claimed probability. The author will run no model trials.
+Upgrade the supplied original legacy controller to the complete contract below by editing only `/app/design.sv`, `/app/map_bypass.sv`, and `/app/ownership.sv`. The working legacy path supports one ordinary instruction through completion and retirement. Multiple live records, full two-lane dispatch, speculative maps, branches/recovery and move elimination are not implemented. This is a substantial feature integration task.
 
-## Engineering request and behavioral scope
+You may replace or reorganize all logic and helper-module interfaces in the three files. Preserve the `rename_recovery` top-level interface. Any legal allocation order and a compact correct reconstruction implementation are accepted. The public `smoke.sv` demonstrates the existing ordinary path; it is not a full verifier.
 
-Upgrade an original legacy single-inflight, non-speculative rename controller to the complete two-wide speculative rename/retirement contract with move elimination below. The legacy implementation supports one ordinary instruction through rename, completion, and retirement. It intentionally lacks the state structures needed for multiple live records, speculative mapping, branch checkpoints, rollback and move-elimination aliases. These missing features will be disclosed as an implementation assignment, not disguised as a three-line bug hunt.
-
-The candidate may replace or reorganize all logic in the three supplied RTL files while preserving the top-level interface. There is no requirement to retain single-entry storage, helper-module interfaces, allocation priority, or any particular algorithm. A compact correct history-reconstruction implementation remains valid.
-
-Arithmetic execution, operand reads, memory, issue scheduling and committed values remain outside scope. A trusted execution adapter supplies exactly-once completion identity/destination metadata under the lifetime rules below.
-
-## Relationship to the frozen contract
-
-This revision adds move-eliminating rename to the legacy-to-two-wide migration. Baseline event ordering, bounds, identity reservation, arbitrary allocation freedom and functional/synthesis policy remain as described below. New input `dispatch_move` and output `retire_move` carry two lane bits each. A move has an effective mapping destination but no new physical allocation: it aliases the source-A physical tag. Shared physical ownership and producer-derived readiness replace v1's unique-live-destination assumption. This is changed behavior and requires a separately validated alias-aware ledger/oracle; reusing v1 unchanged would be incorrect.
-
-Root's final scope excludes operand-read leases and any extra reader lifecycle. Execution/operand reads remain outside this subsystem. No further features will be added before the single five-trial batch and pause.
+Execution, operand reads and arithmetic values are outside scope. A trusted adapter supplies completion metadata. Move completion acknowledges that instruction's bookkeeping and never produces the shared physical value. There is no operand-read lease or extra reader-resource protocol.
 
 ## Finite dimensions and encodings
 
@@ -24,7 +14,7 @@ Root's final scope excludes operand-read leases and any extra reader lifecycle. 
 - Instruction identity is an externally supplied eight-bit token. **Tokens are not ages**; unsigned numeric token ordering has no architectural meaning. The trusted producer follows the lifetime rules below, including through token wrap.
 - Valid dispatch bundles are ordered prefixes: `00`, `01`, or `11`; lane 0 is older. At most one valid lane is a branch. A branch has `dst_we=0` and `move=0`. `move=1` is legal only with `dst_we=1`; destination zero is permitted and remains an ineffective write. All source/destination architectural addresses are in 0..7. `dst_we=1` with destination zero is treated exactly as no destination. Fields on invalid lanes/ports are unconstrained.
 
-## Proposed exact top-level SystemVerilog interface
+## Exact top-level SystemVerilog interface
 
 Packed lane slices use lane 0 in the least-significant slice. No separately overridden derived width is supported.
 
@@ -141,12 +131,6 @@ These inherited ordinary-writer examples assume no additional committed or live 
 
 
 
-## Tool and validation policy
-
-Retain v1's disclosed pinned Yosys/Icarus gate and finite configuration matrix. Candidate agent remains unprivileged, and the privileged verifier compares synthesized-netlist observations against its external ledger. Ordinary RTL alternatives, arbitrary legal allocation order and unconstrained invalid output bits remain accepted. No new latency, PPA, source-size, architecture or API restrictions are introduced to lower the pass rate.
-
-Before freeze: verify the new legacy starter compiles and passes its public single-instruction smoke; show meaningful rejection by the full contract grader; accept the private oracle, descending allocator and invalid-output-X alternative; retain the reviewed semantic controls and grader-integrity controls; independently inspect the starter for conspicuous three-edit repairs; run Harbor oracle preflight without model inference. Root alone freezes one v2 candidate and runs its bounded five-trial batch. No second redesign before that batch result.
-
 ## Additional worked alias cases
 
 1. **Pending producer, early move acknowledgement:** lane 0 ordinary x1 gets fresh p8; lane 1 move x2<-x1 aliases p8, with source-ready 0. A completion for the move token marks that record done but must not make p8 ready. A later consumer of x2 still reports not-ready until the ordinary producer completes.
@@ -156,13 +140,13 @@ Before freeze: verify the new legacy starter compiles and passes its public sing
 5. **Zero and self move:** x4<-x0 maps x4 to p0 without allocation. x4<-x4 keeps the same tag, and retirement cannot free it merely because it appears in `retire_stale`. A move with destination x0 makes no map change, exposes zero new/stale tags, and retains `retire_move=1` and `retire_dst_we=0`.
 6. **Alias rollback:** a branch can retain older aliases and kill younger aliases and ordinary writers. Recompute ownership from updated committed aliases plus surviving live destinations. Same-edge older commits must survive recovery; killed move/producer completions cannot change surviving readiness.
 
-## Review questions for draft 2
 
-Confirm the adapter's move completion acknowledgement is explicitly separate from physical value readiness; alias ownership/provenance remains meaningful under source overwrite and rollback; zero/self-move metadata and no-free-register admission are complete; legal two-ledger or history reconstruction is not excluded. The new starter will deliberately lack moves as well as multi-record recovery, rather than pre-solving either algorithm. Read leases are excluded by root's final scope decision.
+## Tool and grading contract
 
+Use the synthesizable SystemVerilog subset accepted by **Yosys 0.23 (Debian 0.23-6)** and Icarus Verilog 11.0 (Debian 11.0-1.1+b1). Every PHYS/ROB combination is elaborated separately. The gate runs `read_verilog -sv`, parameter elaboration, `hierarchy -check`, `proc`, `opt`, `memory`, `check -assert`, and rejects black-box modules and inferred `$dlatch` cells. There is no PPA, clock-frequency, area or formal-equivalence threshold. No simulation-only constructs, testbench detection, external files/includes, or verifier manipulation are permitted. All implementation RTL must reside in the three editable source files, kept as ordinary files rather than symlinks.
 
-## Review and capacity notes
+The verifier simulates only the Yosys-generated netlist in a trusted interface testbench. A separate privileged Python controller independently checks port observations against an instruction-history/ownership ledger; the agent runs as `node`, tool/runtime processes run separately as `nobody`, and only the root verifier can write the reward. Candidate text or success markers cannot establish a pass. Missing or broken toolchain infrastructure is reported separately from candidate synthesis or functional failures. Synthesis has a 180-second limit per configuration; simulator observations have a 30-second resource timeout; the full verifier budget is 1800 seconds. These are execution safety limits, not performance objectives.
 
-Draft 4 applies the judge's conditional-reclamation clarification, the no-additional-alias assumption for inherited ordinary traces, and explicit move-kind record metadata. A no-free-physical-register **and** spare-ROB-capacity move-admission witness is required at PHYS=16/ROB=16. Do not demand that state in every configuration: without extra leases, PHYS=32 with ROB<=16 cannot exhaust all physical tags while leaving ROB room, and PHYS=24/ROB=16 reaches the maximal owned count only with a full ROB. Other configurations must be tested under reachable resource states.
+Checks include all six finite configurations, exact maximal-prefix admission, arbitrary legal physical allocations, lane bypass, precise commit/recovery, branch boundaries, delayed killed completions, identity wrap under reservations, record compaction under retirement backpressure, and capacity after repeated recovery. The behavioral contract, including late-result lifetime and reset cancellation assumptions, is authoritative.
 
-The rejected draft-3 reader proposal is not part of the public task. Exact scope is now closed: legacy single-inflight migration plus move elimination/shared tags, one root-owned five-trial batch, then pause regardless of ratio.
+Shared-tag checks additionally cover ready and pending producers, early/incomplete move acknowledgements, source overwrite, self/zero moves, partial alias retirement, branch recovery, and moves with no free physical capacity when that state is reachable.
