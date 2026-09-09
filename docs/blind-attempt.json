@@ -1,0 +1,36 @@
+{
+  "status": "graded",
+  "thread_id": "01a08818-11bf-7df0-b5ba-0e90a4352cba",
+  "model": "gpt-6-astra",
+  "effort": "high",
+  "task": "rtl-rename-recovery",
+  "task_hash": "e643969369434d22d2ef40f3813983afa8a49b28a567e54aea2fb57606f7563d",
+  "harness": "Codex desktop fresh visible task using isolated candidate container; distinct from Harbor installed-agent trials",
+  "container": "chip-rename-blind-01",
+  "budget_minutes": 30,
+  "started_at": "2026-09-09T21:34:48.671470+00:00",
+  "attempts_authorized": 1,
+  "context": "task instruction and generic execution adapter only; no conversation history, oracle, private tests, review or desired difficulty",
+  "isolation_note": "Candidate container has no host mounts, network, tests or oracle. Worker has host shell capability but is instructed to operate only via docker exec as node; this is not a hard host-tool security boundary. Do not pool with Harbor calibration.",
+  "reward": 1.0,
+  "grader_status": {
+    "classification": "functional_and_synthesis_pass",
+    "configurations": 6,
+    "tool": "Yosys 0.23",
+    "difficulty": "uncalibrated"
+  },
+  "grader_returncode": 0,
+  "finished_at": "2026-09-09T21:39:56.152686+00:00",
+  "source_sha256": {
+    "design.sv": "2e96a237a201961e96c50c26257e5e6e820d958d72b23ca07938d7f2be88af43",
+    "map_bypass.sv": "45778ecccba6f307b58612b35e959a476a483357a0888ab508df816d765e37fb",
+    "ownership.sv": "b0ae2c4d0e5e594391c359e7e2f259babd7959490d3d09354b1ac26e33d55b27"
+  },
+  "evidence": "work/blind-attempt-01",
+  "agent_duration_seconds": 288.415,
+  "valid_attempts": 1,
+  "successes": 1,
+  "failures": 0,
+  "interpretation": "One successful fresh Codex-harness attempt; insufficient to establish20% pass. Do not pool with Harbor adapter.",
+  "further_attempts_authorized": 0
+}

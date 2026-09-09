@@ -1,0 +1,56 @@
+--- starter/design.sv
++++ submitted/design.sv
+@@ -1,4 +1,4 @@
+-// Original repair starter: audit interactions across map, ownership and recovery.
++// Ordered records are the authority for recovery, completion identity and age.
+ module rename_recovery #(parameter integer PHYS=24, ROB=16, PW=$clog2(PHYS)) (
+     input wire clk, rst, downstream_ready,
+     input wire [1:0] dispatch_valid,
+@@ -106,8 +106,11 @@
+                 if(resolve_recover) next_count=ni+1;
+             end
+         end
++        // Match identity only among records surviving this edge. A killed
++        // destination may already have been reassigned to another token.
+         for(nj=0;nj<2;nj=nj+1) if(complete_valid[nj]) begin
+-            for(ni=0;ni<ROB;ni=ni+1) if(ni<next_count && 1'b1 &&
++            for(ni=0;ni<ROB;ni=ni+1) if(ni<next_count &&
++                    nq[ni][7:0]==complete_id[nj*8 +: 8] &&
+                     nq[ni][NEW +: PW]==complete_dst[nj*PW +: PW]) nq[ni][DN]=1'b1;
+         end
+         for(ni=0;ni<2;ni=ni+1) if(dispatch_accept[ni]) begin
+--- starter/map_bypass.sv
++++ submitted/map_bypass.sv
+@@ -1,4 +1,4 @@
+-// Original repair starter: audit interactions across map, ownership and recovery.
++// Replay surviving records, then perform read-before-write rename in lane order.
+ module rename_map #(parameter PHYS=24, ROB=16, PW=$clog2(PHYS)) (
+     input wire [8*PW-1:0] committed,
+     input wire [31:0] count,
+@@ -27,7 +27,7 @@
+             ready_b[i]=avail[tag_b[i*PW +: PW]];
+             if (effective[i]) begin
+                 stale[i*PW +: PW]=map[new_arch[i*3 +: 3]*PW +: PW];
+-                if (i==1) map[new_arch[i*3 +: 3]*PW +: PW]=allocated[i*PW +: PW];
++                map[new_arch[i*3 +: 3]*PW +: PW]=allocated[i*PW +: PW];
+                 avail[allocated[i*PW +: PW]]=1'b0;
+             end
+         end
+--- starter/ownership.sv
++++ submitted/ownership.sv
+@@ -1,4 +1,5 @@
+-// Original repair starter: audit interactions across map, ownership and recovery.
++// Own every live destination, whether complete or incomplete. Reconstructing
++// the set reclaims killed destinations while preserving older retirement.
+ module rename_ownership #(parameter PHYS=24, ROB=16, PW=$clog2(PHYS)) (
+     input wire [8*PW-1:0] committed,
+     input wire [31:0] count,
+@@ -15,7 +16,7 @@
+             owned[committed[i*PW +: PW]]=1'b1;
+             ready[committed[i*PW +: PW]]=1'b1;
+         end
+-        for (i=0;i<ROB;i=i+1) if (i<count && has_dst[i] && done[i]) begin
++        for (i=0;i<ROB;i=i+1) if (i<count && has_dst[i]) begin
+             owned[dst[i*PW +: PW]]=1'b1;
+             ready[dst[i*PW +: PW]]=done[i];
+         end

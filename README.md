@@ -10,7 +10,7 @@ Three original Harbor tasks and a custom Python harness are included:
 | `rtl-rr-lock` | Round-robin interconnect arbitration with ownership | Lock persistence, release-edge timing, pointer fairness |
 | `rtl-rename-recovery` | Two-wide rename, register ownership, retirement and branch recovery | Commit/recovery ordering, stale completions, checkpoint reclamation |
 
-All have explicit contracts, starter RTL, separate oracles and deterministic graders. Native oracles pass, starters fail, and ten semantic mutants are rejected. These results establish test discrimination, not the target model's success rate. The initial two tasks have simulation-only grading. Rename recovery additionally checks synthesis and generated-netlist behavior with a privileged external grader. Its oracle passed Harbor preflight; three legitimate variants and thirteen negative controls passed the acceptance/rejection checks. It has no model trials yet.
+All have explicit contracts, starter RTL, separate oracles and deterministic graders. Native oracles pass, starters fail, and ten semantic mutants are rejected. These results establish test discrimination, not the target model's success rate. The initial two tasks have simulation-only grading. Rename recovery additionally checks synthesis and generated-netlist behavior with a privileged external grader. Its oracle passed Harbor preflight; three legitimate variants and thirteen negative controls passed the acceptance/rejection checks. A separate fresh Codex-harness Astra attempt passed; see [blind-attempt result](docs/blind-attempt.md). This is not calibrated difficulty.
 
 ## Use
 
