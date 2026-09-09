@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "kind": "Harbor oracle preflight; no model call",
+  "reward": {
+    "reward": 1.0
+  },
+  "exception": null,
+  "job": "work/harbor/rename-oracle-preflight",
+  "tested_files_sha256": {
+    "tasks/rtl-rename-recovery/instruction.md": "6ade44713e09cacc570a738dd3f3a6cfbe2c749e78e9fb0fad057f83b58e1682",
+    "tasks/rtl-rename-recovery/task.toml": "95061ac65b4e13c202c20bef57b950630a453ac5b6c9b2aaad0fe09b5591c93e",
+    "tasks/rtl-rename-recovery/tests/grader.py": "ac61981038a5cbed354cdddda60782592fdf16037fc0038afc579956678c91b4",
+    "tasks/rtl-rename-recovery/tests/protocol.py": "f7ee0a5dd2afc9e876784fef22aac57c53970080605f7b1755d76544aee7b052",
+    "tasks/rtl-rename-recovery/tests/reference.py": "9d57636758e7e7e52d1f39fea138a2dc6607563c8b19f66c41748affa3539c7e",
+    "tasks/rtl-rename-recovery/tests/test.sh": "911db6273743e618b4e5284dadc3495a7a5b6b331a6ecf466dccc643cc977862",
+    "tasks/rtl-rename-recovery/tests/schedules.py": "08bc2e0c3c3b6198871d769f8f444197d568800dac43e7b4ce19aa6c99c95c6c",
+    "tasks/rtl-rename-recovery/tests/__pycache__/protocol.cpython-39.pyc": "30c9b2a5a46b685d84ad267c600b73f9d4ea61df3de1d4368cbae251e8d263b9",
+    "tasks/rtl-rename-recovery/tests/__pycache__/grader.cpython-39.pyc": "3ee295a7f124c3e287c17e389dabad4fa499d2e2dbe585d6f6e953eeca104e3b",
+    "tasks/rtl-rename-recovery/tests/__pycache__/reference.cpython-39.pyc": "b966ac98002cb1e2bd879d41d38678b3612db4ba6c975b257a1d23693efde797",
+    "tasks/rtl-rename-recovery/tests/__pycache__/schedules.cpython-39.pyc": "c042bbd99d2625ef7c9d7ce986ce892b7c939b809e265b1221c12e9bd03b2fd0",
+    "tasks/rtl-rename-recovery/solution/ownership.sv": "c08cb033c2e74cded8531ac3871d086e7dc869add22ab52fb5cd476f94938ab5",
+    "tasks/rtl-rename-recovery/solution/solve.sh": "23f159ffdddc59e73d156e8b9436bc3190cf4a9ddabb69cda76fae1e92270a22",
+    "tasks/rtl-rename-recovery/solution/design.sv": "5497de0f860cbe2d3b80a477d5ba4e60cfd83d955935dee2f3c4bcf9b9ec75c5",
+    "tasks/rtl-rename-recovery/solution/map_bypass.sv": "2ebddef852749f499e9d3193cfb7315c18c49b8f14ad5ec69ddd2ffd04b5aed4",
+    "tasks/rtl-rename-recovery/environment/Dockerfile": "814d2e27c7ed0020c418951d20b3f94fa4d1d0cb91b5617b53945cea81bd258c",
+    "tasks/rtl-rename-recovery/environment/repo/ownership.sv": "2712813b4d8147f12668c523ca2c7b61a551518a81384b76d2e519282aa2beaa",
+    "tasks/rtl-rename-recovery/environment/repo/design.sv": "4591b65a6baa5e6b11be81b24e477dff0b64cf257b2318f170a9bc36b6570a33",
+    "tasks/rtl-rename-recovery/environment/repo/README.md": "2edda09d3d1dc80cf35a9825e11c2f956628912b2411d103b5622af71a677ac2",
+    "tasks/rtl-rename-recovery/environment/repo/map_bypass.sv": "274f34cf98802e3b4a94fcceb4725ce31c60c1d1a9ed2b2619581a35ecd4e337",
+    "tasks/rtl-rename-recovery/environment/repo/smoke.sv": "3c82ae6ec9581079c86b8fb267f8a7334342d4df26c27c7f2fd1e81e840e0fa0"
+  },
+  "isolation": {
+    "controller_uid": 0,
+    "candidate_agent_user": "node",
+    "tool_and_runtime_uid": 65534,
+    "reward_directory_mode": "0o700",
+    "reward_directory_uid": 0,
+    "simulation_source": "yosys_netlist_only",
+    "reference_expectations_in_simulator": false
+  }
+}
