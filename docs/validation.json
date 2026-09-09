@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-09",
+  "harbor": "0.22.0",
+  "native_iverilog": "13.0",
+  "harness_tests_passed": 8,
+  "tasks": {
+    "rtl-skid-flush": {
+      "container_oracle_reward": 1,
+      "container_oracle_errors": 0,
+      "native_oracle_reward": 1,
+      "native_baseline_reward": 0,
+      "semantic_mutants_rejected": 4
+    },
+    "rtl-rr-lock": {
+      "container_oracle_reward": 1,
+      "container_oracle_errors": 0,
+      "native_oracle_reward": 1,
+      "native_baseline_reward": 0,
+      "semantic_mutants_rejected": 4
+    }
+  },
+  "model_calibration": "unmeasured; pilot setup in progress"
+}

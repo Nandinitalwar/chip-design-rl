@@ -1,0 +1,38 @@
+# Chip-design RL tasks
+
+Private development repository for realistic chip-design tasks targeting **20% failure on GPT-6 Astra** (about 8/10 independent successes). Difficulty is **not yet calibrated**.
+
+Two original Harbor tasks and a custom Python harness are included:
+
+| Task | Engineering behavior | Intended failure modes |
+|---|---|---|
+| `rtl-skid-flush` | Two-entry registered ready/valid queue | Flush priority, full replacement, FIFO ordering |
+| `rtl-rr-lock` | Round-robin interconnect arbitration with ownership | Lock persistence, release-edge timing, pointer fairness |
+
+Both have explicit contracts, starter RTL, separate oracles and deterministic graders. Native oracles pass, starters fail, and eight semantic mutants are rejected. These results establish test discrimination, not the target model's success rate. Synthesizability is required but not yet checked with a synthesis tool.
+
+## Use
+
+Requires Python 3.11+, Icarus Verilog (`iverilog`, `vvp`), and GNU `timeout` (or `gtimeout` on macOS). Model/container execution additionally requires Harbor 0.22.0 and a working Docker daemon.
+
+```sh
+python -m unittest discover -s tests -v
+python -m harness.cli validate tasks/*
+python -m harness.cli oracle tasks/* --out runs/oracle
+python -m harness.cli baseline tasks/* --out runs/baseline
+python -m harness.cli trials tasks/* --trials 10 --effort high
+```
+
+The last command prints a plan. Add `--execute` to run it with configured Codex authentication. The standard Harbor adapter supports `CODEX_FORCE_AUTH_JSON=1` for local Codex sign-in. Credentials and raw runs must not be committed. See [harness documentation](docs/harness.md) for result handling and limitations.
+
+## Project record
+
+- [Living instructions and status](docs/CONTEXT.md)
+- [Requirements and METR research](docs/market-requirements.md)
+- [Calibration protocol](docs/CALIBRATION.md)
+- [Failure-mode taxonomy and attribution](docs/failure-modes.md)
+- [Static review of supplied example](docs/reference-review.md)
+- [Provenance ledger](docs/PROVENANCE.md)
+- [NKI candidate backlog](docs/NKI-BACKLOG.md)
+
+METR's public task bounty is paused; no universal selling requirement for 20% failure was found. Buyer-specific acceptance terms, expert review, dependency freezing and independent calibration remain release prerequisites. The user archive is not redistributed here.

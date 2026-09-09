@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-09",
+  "simulator": "Icarus Verilog 13.0",
+  "model_calibration": "not run",
+  "checks": {
+    "oracle": {
+      "reward": 1
+    },
+    "starter": {
+      "reward": 0
+    },
+    "no-full-replacement": {
+      "reward": 0
+    },
+    "ignore-flush": {
+      "reward": 0
+    },
+    "reverse-full-replacement": {
+      "reward": 0
+    },
+    "accept-during-flush": {
+      "reward": 0
+    }
+  }
+}

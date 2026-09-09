@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-09",
+  "simulator": "Icarus Verilog 13.0",
+  "model_calibration": "not run",
+  "checks": {
+    "oracle": {
+      "reward": 1
+    },
+    "starter": {
+      "reward": 0
+    },
+    "drop-owner-with-request": {
+      "reward": 0
+    },
+    "off-by-one-fairness": {
+      "reward": 0
+    },
+    "early-release": {
+      "reward": 0
+    },
+    "ignore-lock-acquisition": {
+      "reward": 0
+    }
+  }
+}
