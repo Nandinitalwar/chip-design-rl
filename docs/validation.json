@@ -9,15 +9,17 @@
       "container_oracle_errors": 0,
       "native_oracle_reward": 1,
       "native_baseline_reward": 0,
-      "semantic_mutants_rejected": 4
+      "semantic_mutants_rejected": 5
     },
     "rtl-rr-lock": {
       "container_oracle_reward": 1,
       "container_oracle_errors": 0,
       "native_oracle_reward": 1,
       "native_baseline_reward": 0,
-      "semantic_mutants_rejected": 4
+      "semantic_mutants_rejected": 5
     }
   },
-  "model_calibration": "unmeasured; pilot setup in progress"
+  "model_calibration": "dedicated trial operator running; see trial-summary.json",
+  "negative_controls_total": 10,
+  "independent_llm_review": "parameter gaps fixed and independently rechecked"
 }

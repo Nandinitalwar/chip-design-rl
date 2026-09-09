@@ -47,3 +47,5 @@ Updated: 2026-09-09. Owner: user. Repository: https://github.com/Nandinitalwar/c
 - Verifier preflight now reports missing simulator/time-limit tooling as infrastructure rather than valid reward 0.
 
 - Independent judge reran expanded graders: both oracles pass and both parameter counterexamples fail. Current verdict: ready for functional pilot calibration; synthesis and target difficulty remain unverified.
+
+- Frozen reviewed task revision 303f494; reproducible tests/check_mutations.py confirms both oracles, both starters and ten negative controls. First isolated Astra/high trial started successfully after cached dependency image setup.
