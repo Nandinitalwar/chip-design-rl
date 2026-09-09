@@ -1,6 +1,13 @@
 # Living project context
 
-Updated: 2026-09-09. Owner: user. Repository: https://github.com/Nandinitalwar/chip-design-rl (private).
+Updated: 2026-09-09.
+
+## Latest authoritative correction
+
+The user has corrected the target to **20% PASS / 80% FAILURE** on gpt-6-astra/high. This supersedes the earlier clarification of 20% failure. Existing campaigns retain their original configurations and results; future research, judging and task selection use 20% pass. Researcher is developing sourced hard-task candidates for direct handoff to expert judge. Current credit-task authoring is paused pending this shortlist.
+
+Historical decisions below are retained for audit; interpret them under this latest correction.
+ Owner: user. Repository: https://github.com/Nandinitalwar/chip-design-rl (private).
 
 ## Authoritative user instructions
 1. Orchestrate a swarm to build chip-design tasks targeting GPT-6 Astra.
@@ -57,3 +64,5 @@ Updated: 2026-09-09. Owner: user. Repository: https://github.com/Nandinitalwar/c
 - Follow-up independent LLM judge reviewed the running campaign snapshot (2026-09-09T20:39:53Z: one valid skid success) and wrote docs/expert-followup.md. Frozen functional calibration may continue; synthesis enforcement, independently derived grader checks, reward isolation evidence and completed task-specific calibration remain release gaps. No task assets or model trials were changed by this review.
 
 - RTL author drafted docs/next-task-proposals.md: per-channel credit accounting, tagged in-order retirement, and byte-write merge/read forwarding. These are proposal-only, uncalibrated candidates; existing task files remain frozen. Suggested next authoring assignment is rtl-vc-credit, pending orchestrator selection.
+
+- RTL author saved rtl-vc-credit as a paused draft after the target correction to 20% pass / 80% failure. Original wrapper, oracle, starter, ledger grader and standalone semantic-control script exist; earlier native/container functional checks passed, but final validation/review is unfinished after a local timeout and subsequent infrastructure preflight failure. No model trials or frozen-task edits; awaiting judged harder-task shortlist. See docs/vc-credit-validation.md and tasks/rtl-vc-credit/validation.json.

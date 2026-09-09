@@ -1,5 +1,6 @@
 # RL task supply: evidence and project acceptance criteria
 
+> Target correction: the latest user instruction is **20% pass / 80% failure**. Earlier target statements below are historical. Existing frozen trials are unchanged; new candidate selection uses the corrected target.
 Research checked 2026-09-09. This is technical market research, not a buyer contract or confirmation of commercial acceptance.
 
 ## The difficulty target needs explicit naming

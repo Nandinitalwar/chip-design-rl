@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "target_model": "gpt-6-astra",
-  "target_failure_rate": 0.2,
+  "target_failure_rate": 0.8,
   "tasks": [
     {
       "task_id": "rtl-skid-flush",
@@ -26,5 +26,7 @@
       "difficulty_status": "uncalibrated",
       "expert_review": "LLM judge: ready for functional pilot calibration; synthesis unverified"
     }
-  ]
+  ],
+  "target_success_rate": 0.2,
+  "target_note": "User correction; existing task results retain original configurations."
 }

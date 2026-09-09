@@ -1,5 +1,6 @@
 # Harness and calibration protocol
 
+> Target correction: the latest user instruction is **20% pass / 80% failure**. Earlier target statements below are historical. Existing frozen trials are unchanged; new candidate selection uses the corrected target.
 The repository uses its own Python 3.11+ standard-library controller around Harbor tasks. Harbor performs isolated model execution; this controller validates the local task contract, checks oracle and starter behavior, creates independent trial commands, records outcomes, and computes uncertainty. It is not a replacement for Harbor's container orchestration.
 
 The current primary target is **80% success / 20% failure per task** on `gpt-6-astra` at fixed `high` reasoning effort. The optional `hard` planning profile captures the example's 10–20% success target but is not the primary target. These are targets, not measured properties of the tasks.

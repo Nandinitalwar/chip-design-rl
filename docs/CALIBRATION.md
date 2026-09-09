@@ -1,5 +1,6 @@
 # Calibration protocol
 
+> Target correction: the latest user instruction is **20% pass / 80% failure**. Earlier target statements below are historical. Existing frozen trials are unchanged; new candidate selection uses the corrected target.
 Confirmed target: 20% failure per task on GPT-6 Astra, or 80% single-trial success. This is an empirical target, not a selling requirement established by METR. Report task-level results as well as dataset-level totals.
 
 ## Frozen evaluation configuration

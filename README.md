@@ -1,6 +1,6 @@
 # Chip-design RL tasks
 
-Private development repository for realistic chip-design tasks targeting **20% failure on GPT-6 Astra** (about 8/10 independent successes). Difficulty is **not yet calibrated**.
+Private development repository for realistic chip-design tasks targeting **20% pass on GPT-6 Astra** (about 2/10 independent successes). Difficulty is **not yet calibrated**. The target was corrected by the user; existing simple-task campaigns began under an earlier 80% pass target and remain separate evidence.
 
 Two original Harbor tasks and a custom Python harness are included:
 
