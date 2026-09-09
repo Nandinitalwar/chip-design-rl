@@ -49,3 +49,5 @@ Updated: 2026-09-09. Owner: user. Repository: https://github.com/Nandinitalwar/c
 - Independent judge reran expanded graders: both oracles pass and both parameter counterexamples fail. Current verdict: ready for functional pilot calibration; synthesis and target difficulty remain unverified.
 
 - Frozen reviewed task revision 303f494; reproducible tests/check_mutations.py confirms both oracles, both starters and ten negative controls. First isolated Astra/high trial started successfully after cached dependency image setup.
+
+- User requested visible sidebar workers. Created four separate tasks under Chip-design swarm; this original task remains orchestrator. Worker IDs recorded in SWARM.md. Trial ownership handed over while existing campaigns continue; no duplicate runs launched.
