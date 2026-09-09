@@ -4,7 +4,7 @@ reg rst=1,flush=0,iv=0,ordy=0;
 reg [WIDTH-1:0] din=0;
 wire ir,ov; wire [WIDTH-1:0] dout;
 skid_flush #(.WIDTH(WIDTH)) dut(clk,rst,flush,iv,ir,din,ov,ordy,dout);
-integer n=0,step=0,i; reg [WIDTH-1:0] model[0:1];
+integer n=0,step=0,i,bitidx; reg [WIDTH-1:0] random_word; reg [WIDTH-1:0] model[0:1];
 reg er,ev,push,pop; reg [31:0] rng=32'hb3e92157;
 function [31:0] advance(input [31:0] x); begin advance=(x<<1)^{32{ x[31] }}&32'h04c11db7; end endfunction
 task cycle(input rr,input ff,input vv,input ready,input [WIDTH-1:0] data);
@@ -30,8 +30,11 @@ initial begin
  cycle(0,0,1,1,16'ha001);cycle(0,0,1,1,16'ha002);
  cycle(0,1,1,1,16'hdead);cycle(0,0,0,1,0);
  for(i=0;i<2500;i=i+1) begin
+  for(bitidx=0;bitidx<WIDTH;bitidx=bitidx+1) begin
+   rng=advance(rng); random_word[bitidx]=rng[0];
+  end
   rng=advance(rng);
-  cycle(i%137==0,i%29==0,rng[0],rng[6],rng[23:8]);
+  cycle(i%137==0,i%29==0,rng[0],rng[6],random_word);
  end
  cycle(0,0,0,1,0);cycle(0,0,0,1,0);cycle(0,0,0,1,0);
  done=1;
@@ -39,10 +42,13 @@ end
 endmodule
 
 module tb;
-wire a,b,c;
+wire a,b,c,d,e,f;
 skid_checker #(.WIDTH(1)) c1(a);
 skid_checker #(.WIDTH(9)) c9(b);
 skid_checker #(.WIDTH(16)) c16(c);
-initial begin wait(a&&b&&c);$display("ALL_TESTS_PASSED");$finish;end
+skid_checker #(.WIDTH(17)) c17(d);
+skid_checker #(.WIDTH(32)) c32(e);
+skid_checker #(.WIDTH(65)) c65(f);
+initial begin wait(a&&b&&c&&d&&e&&f);$display("ALL_TESTS_PASSED");$finish;end
 initial begin #100000;$fatal(1,"timeout");end
 endmodule

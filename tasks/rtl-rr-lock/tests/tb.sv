@@ -44,8 +44,10 @@ initial begin
 end
 endmodule
 module tb;
-wire a,b,c;
+wire a,b,c,d,e,f,g,h;
 arb_checker #(.N(1)) c1(a);arb_checker #(.N(3)) c3(b);arb_checker #(.N(4)) c4(c);
-initial begin wait(a&&b&&c);$display("ALL_TESTS_PASSED");$finish;end
+arb_checker #(.N(2)) c2(d);arb_checker #(.N(5)) c5(e);
+arb_checker #(.N(6)) c6(f);arb_checker #(.N(7)) c7(g);arb_checker #(.N(8)) c8(h);
+initial begin wait(a&&b&&c&&d&&e&&f&&g&&h);$display("ALL_TESTS_PASSED");$finish;end
 initial begin #100000;$fatal(1,"timeout");end
 endmodule

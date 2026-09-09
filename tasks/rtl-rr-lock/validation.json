@@ -1,25 +1,46 @@
 {
   "date": "2026-09-09",
   "simulator": "Icarus Verilog 13.0",
+  "method": "Exact native tests/test.sh with TASK_WORKSPACE and VERIFIER_LOG_DIR; semantic mutants independently compiled and simulated first.",
+  "testbench_sha256": "0d2e74c578245ff5be58d868dee217580bbc69230e0c5889c8217c0e4250e231",
+  "grader_sha256": "dc0e574a07cad11b46505b5dafea9ae6369fd9849b8b0dbc3708c0dc0f29e4a5",
+  "parameter_coverage": {
+    "N": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
   "model_calibration": "not run",
   "checks": {
     "oracle": {
-      "reward": 1
+      "reward": 1,
+      "expected_reward": 1
     },
     "starter": {
-      "reward": 0
+      "reward": 0,
+      "expected_reward": 0
     },
     "drop-owner-with-request": {
-      "reward": 0
+      "reward": 0,
+      "expected_reward": 0
     },
     "off-by-one-fairness": {
-      "reward": 0
+      "reward": 0,
+      "expected_reward": 0
     },
     "early-release": {
-      "reward": 0
+      "reward": 0,
+      "expected_reward": 0
     },
     "ignore-lock-acquisition": {
-      "reward": 0
+      "reward": 0,
+      "expected_reward": 0
     }
   }
 }

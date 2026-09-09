@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "target_model": "gpt-6-astra",
+  "target_failure_rate": 0.2,
+  "tasks": [
+    {
+      "task_id": "rtl-skid-flush",
+      "intended_primary": "RTL-ORDER",
+      "intended_secondary": [
+        "RTL-STATE",
+        "RTL-HANDSHAKE",
+        "RTL-RESET"
+      ],
+      "observed_failure_modes": [],
+      "difficulty_status": "uncalibrated",
+      "expert_review": "LLM judge: ready for functional pilot calibration; synthesis unverified"
+    },
+    {
+      "task_id": "rtl-rr-lock",
+      "intended_primary": "RTL-STATE",
+      "intended_secondary": [
+        "RTL-ORDER",
+        "RTL-PARAM"
+      ],
+      "observed_failure_modes": [],
+      "difficulty_status": "uncalibrated",
+      "expert_review": "LLM judge: ready for functional pilot calibration; synthesis unverified"
+    }
+  ]
+}

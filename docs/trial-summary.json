@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "setup_in_progress",
+  "requested_model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "target_failure_rate": 0.2,
+  "planned_valid_trials_per_task": 10,
+  "valid_trials": 0,
+  "success_rate": null,
+  "failure_rate": null,
+  "excluded_attempts": [
+    {
+      "trial_id": "3b833baa-9c7d-4d6a-8795-ed41d6c05109",
+      "task": "rtl-skid-flush",
+      "task_hash": "c0990619dd759ff7b06a706b29eafcb63e9aa79f123bc4bfc31c1bbb9f876e58",
+      "status": "infra_error",
+      "adjudication": "Operator stopped container during dependency setup before model execution, to prevent task-version contamination while fixing graders. Original record retained unchanged.",
+      "evidence_record": "work/pilot/3b833baa-9c7d-4d6a-8795-ed41d6c05109.json"
+    }
+  ],
+  "task_results": []
+}

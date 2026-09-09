@@ -1,0 +1,38 @@
+{
+  "rtl-skid-flush/oracle/supplied-tests": "1",
+  "rtl-skid-flush/parameter-mutant/supplied-tests": "1",
+  "rtl-skid-flush/oracle/boundary-test": {
+    "exit_code": 0,
+    "output": "PASS\nwork/chip-expert-review/rtl-skid-flush/boundary-tb.sv:1: $finish called at 21 (1s)\n"
+  },
+  "rtl-skid-flush/parameter-mutant/boundary-test": {
+    "exit_code": 1,
+    "output": "FATAL: work/chip-expert-review/rtl-skid-flush/boundary-tb.sv:1: upper bit lost\n       Time: 21  Scope: tb\n"
+  },
+  "rtl-rr-lock/oracle/supplied-tests": "1",
+  "rtl-rr-lock/parameter-mutant/supplied-tests": "1",
+  "rtl-rr-lock/oracle/boundary-test": {
+    "exit_code": 0,
+    "output": "PASS\nwork/chip-expert-review/rtl-rr-lock/boundary-tb.sv:1: $finish called at 11 (1s)\n"
+  },
+  "rtl-rr-lock/parameter-mutant/boundary-test": {
+    "exit_code": 1,
+    "output": "FATAL: work/chip-expert-review/rtl-rr-lock/boundary-tb.sv:1: requester 4 missing\n       Time: 11  Scope: tb\n"
+  },
+  "rtl-skid-flush/oracle/expanded-tests": {
+    "reward": "1",
+    "simulation": "ALL_TESTS_PASSED\n/Users/nandinitalwar/Documents/Codex/2026-09-09/orhce/outputs/chip-design-rl/tasks/rtl-skid-flush/tests/tb.sv:52: $finish called at 25145 (1s)\n"
+  },
+  "rtl-skid-flush/parameter-mutant/expanded-tests": {
+    "reward": "0",
+    "simulation": "FATAL: /Users/nandinitalwar/Documents/Codex/2026-09-09/orhce/outputs/chip-design-rl/tasks/rtl-skid-flush/tests/tb.sv:15: data mismatch step=13 got=0000000000000dcb9 expected=1e3087d39d357dcb9\n       Time: 141  Scope: tb.c65.cycle\n"
+  },
+  "rtl-rr-lock/oracle/expanded-tests": {
+    "reward": "1",
+    "simulation": "ALL_TESTS_PASSED\n/Users/nandinitalwar/Documents/Codex/2026-09-09/orhce/outputs/chip-design-rl/tasks/rtl-rr-lock/tests/tb.sv:51: $finish called at 19575 (1s)\n"
+  },
+  "rtl-rr-lock/parameter-mutant/expanded-tests": {
+    "reward": "0",
+    "simulation": "FATAL: /Users/nandinitalwar/Documents/Codex/2026-09-09/orhce/outputs/chip-design-rl/tasks/rtl-rr-lock/tests/tb.sv:17: N=5 step=43 expected=10000 got=00000\n       Time: 441  Scope: tb.c5.cycle\n"
+  }
+}

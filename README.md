@@ -9,7 +9,7 @@ Two original Harbor tasks and a custom Python harness are included:
 | `rtl-skid-flush` | Two-entry registered ready/valid queue | Flush priority, full replacement, FIFO ordering |
 | `rtl-rr-lock` | Round-robin interconnect arbitration with ownership | Lock persistence, release-edge timing, pointer fairness |
 
-Both have explicit contracts, starter RTL, separate oracles and deterministic graders. Native oracles pass, starters fail, and eight semantic mutants are rejected. These results establish test discrimination, not the target model's success rate. Synthesizability is required but not yet checked with a synthesis tool.
+Both have explicit contracts, starter RTL, separate oracles and deterministic graders. Native oracles pass, starters fail, and ten semantic mutants are rejected. These results establish test discrimination, not the target model's success rate. Synthesizability is required but not yet checked with a synthesis tool.
 
 ## Use
 
@@ -17,6 +17,7 @@ Requires Python 3.11+, Icarus Verilog (`iverilog`, `vvp`), and GNU `timeout` (or
 
 ```sh
 python -m unittest discover -s tests -v
+python tests/check_mutations.py
 python -m harness.cli validate tasks/*
 python -m harness.cli oracle tasks/* --out runs/oracle
 python -m harness.cli baseline tasks/* --out runs/baseline
@@ -31,6 +32,8 @@ The last command prints a plan. Add `--execute` to run it with configured Codex 
 - [Requirements and METR research](docs/market-requirements.md)
 - [Calibration protocol](docs/CALIBRATION.md)
 - [Failure-mode taxonomy and attribution](docs/failure-modes.md)
+- [Independent chip-design LLM review](docs/chip-expert-review.md)
+- [Trial results](docs/trial-results.md)
 - [Static review of supplied example](docs/reference-review.md)
 - [Provenance ledger](docs/PROVENANCE.md)
 - [NKI candidate backlog](docs/NKI-BACKLOG.md)

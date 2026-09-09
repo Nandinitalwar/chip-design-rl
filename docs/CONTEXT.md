@@ -40,3 +40,10 @@ Updated: 2026-09-09. Owner: user. Repository: https://github.com/Nandinitalwar/c
 - Follow-up inputs requested: buyer/acceptance guidelines, RTL versus NKI mix, calibration budget.
 - User requested an independent chip-design expert LLM judge and a dedicated success-rate/trial-running agent. Both launched; expert review is advisory evidence, separate from deterministic grades and measured success rates.
 - Trial operator assigned ten independent gpt-6-astra/high runs per task, preserving all outcomes and stopping repeated infrastructure problems. It is investigating the existing pilot's slow dependency setup before launching further trials.
+
+- Independent chip-design LLM review demonstrated parameter-boundary false positives. Expanded graders before calibration to all arbiter N=1..8 and skid WIDTH=1/9/16/17/32/65 with full-width stimulus.
+- Stopped initial pilot during agent dependency setup; recorded as infrastructure-only, with no valid model outcome.
+- Trial operator is caching pinned Codex 0.153.4 and runtime dependencies into Docker images, with no credentials in images.
+- Verifier preflight now reports missing simulator/time-limit tooling as infrastructure rather than valid reward 0.
+
+- Independent judge reran expanded graders: both oracles pass and both parameter counterexamples fail. Current verdict: ready for functional pilot calibration; synthesis and target difficulty remain unverified.
