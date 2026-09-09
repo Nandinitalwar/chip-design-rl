@@ -89,3 +89,13 @@ Historical decisions below are retained for audit; interpret them under this lat
 - User authorized one fresh Astra attempt inside the Codex harness, no prior task history. Created visible blind-attempt task01a08818-11bf-7df0-b5ba-0e90a4352cba with task/public starter only, high effort,30-minute budget. Candidate container has no host mounts/network/oracle/tests. This harness differs from earlier Harbor adapter; record separately. Uses Codex usage, not free inference; no additional attempts authorized.
 
 - Fresh blind Astra/high attempt completed in288.415s, private grader reward1 across all six synthesis/functional configurations. Three localized repairs. Result is1/1 success in a separate Codex desktop harness, not a calibrated20% pass rate or pooled Harbor result. No further runs authorized; recommend task redesign before spending more. Evidence docs/blind-attempt.json, .md and .patch.
+
+## Latest redesign-loop instruction
+
+User requests repeated redesign and fresh-agent testing, corrected target **1 pass / 5 valid independent trials** (20% observed pass). The earlier3/5-failure or2/5-pass wording is superseded. Root assigned a separate rtl-rename-recovery-v2 redesign after previous task passed with three local edits. Freeze each candidate before its five-run batch; no mid-batch changes, no discarded valid runs, no selective reporting. Exact observed ratio is not a population-rate guarantee. Five model trials form the first bounded batch; maximum further batches/spend clarification requested because user has scarce funds. No model trials have started forv2.
+
+- Budget clarification received: **one five-run batch, then pause**, regardless of observed result. This supersedes open-ended redesign-loop language. No automatic second batch or extra model retries.
+
+- User difficulty steering: aggressively underestimate our subjective difficulty estimates; request for10000x difficulty interpreted as substantially deeper real engineering, not a measurable multiplier or permission for impossible/hidden constraints. Author and judge must analyze the easiest legitimate solution and avoid near-complete starters with trivial edits. Budget remains one5-run batch then pause.
+
+- Expert diagnosed the prior blind-attempt patch: three local predicate repairs sufficed because the starter already implemented the core ownership/recovery/retirement architecture. docs/rename-v2-starter-diagnosis.md records evidence versus LLM interpretation and actual-work review gates for v2. Awaiting author contract/starter plan; no v2 approval, model trials or frozen-task changes from judge.
