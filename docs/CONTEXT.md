@@ -81,3 +81,7 @@ Historical decisions below are retained for audit; interpret them under this lat
 
 - Root Harbor oracle preflight passed for rename recovery, reward1 and no exceptions (work/harbor/rename-oracle-preflight); tested file hashes recorded in docs/rename-harbor-preflight.json. No Astra call. Final author matrix remains pending before integration/freeze.
 - Initial tasks: skid10/10 valid passes; arbiter6/6 valid passes plus one credit-related infrastructure interruption. Current20%-pass target unmet; no new model campaigns launched.
+
+- Final R1 author handoff: current-asset three-positive/six-configuration and thirteen-negative matrix passed; independent judge closed sparse-completion and X-encoding defects and verified runtime SIGTERM infrastructure handling. Actual Harbor oracle preflight passed reward 1/no exceptions with configured UID separation. validation.json records final asset/image hashes and before/after evidence. Author performed no model trials, commits or freeze; orchestrator owns integration and calibration after remaining model-access preflight.
+
+- Root integrating/freeze of rename recovery after exact final matrix, independent judge closure and Harbor oracle pass. Frozen-for-calibration status supersedes author validation snapshot marked unfrozen; no model success-rate claim. Existing sixteen valid initial-task trials all passed. CLI planning default updated to current20% success target.

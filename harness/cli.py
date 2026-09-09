@@ -206,8 +206,8 @@ def main():
         if command == "trials":
             p.add_argument("--trials", type=int, default=10)
             p.add_argument("--effort", choices=["low", "medium", "high", "xhigh", "max", "ultra"], default="high")
-            p.add_argument("--target-success", type=float, default=0.8)
-            p.add_argument("--profile", choices=["original", "hard"], default="original")
+            p.add_argument("--target-success", type=float, default=0.2)
+            p.add_argument("--profile", choices=["current", "original", "hard"], default="current")
             p.add_argument("--execute", action="store_true", help="Actually launch trials; default prints a plan")
     sub.add_parser("report").add_argument("records", nargs="+", type=Path)
     args = parser.parse_args()

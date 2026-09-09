@@ -1,0 +1,13 @@
+{
+  "task_id": "rtl-rename-recovery",
+  "status": "frozen-for-calibration",
+  "task_hash": "e643969369434d22d2ef40f3813983afa8a49b28a567e54aea2fb57606f7563d",
+  "target_success_rate": 0.2,
+  "target_model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "model_trials": 0,
+  "author_validation": "tasks/rtl-rename-recovery/validation.json",
+  "independent_review": "docs/rename-recovery-implementation-review.md",
+  "harbor_preflight": "docs/rename-harbor-preflight.json",
+  "note": "Root freeze supersedes historical unfrozen author-handoff status. No model difficulty established."
+}

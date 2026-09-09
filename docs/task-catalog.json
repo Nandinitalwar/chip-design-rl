@@ -25,6 +25,22 @@
       "observed_failure_modes": [],
       "difficulty_status": "uncalibrated",
       "expert_review": "LLM judge: ready for functional pilot calibration; synthesis unverified"
+    },
+    {
+      "task_id": "rtl-rename-recovery",
+      "intended_primary": "RTL-STATE",
+      "intended_secondary": [
+        "RTL-ORDER",
+        "RTL-ALIAS",
+        "RTL-PARAM",
+        "RTL-HANDSHAKE",
+        "RTL-LIVE",
+        "ENG-LOCALIZE"
+      ],
+      "observed_failure_modes": [],
+      "difficulty_status": "uncalibrated",
+      "expert_review": "Contract and implementation review complete; retained-control repairs independently verified",
+      "release_status": "frozen for calibration; no model trials"
     }
   ],
   "target_success_rate": 0.2,

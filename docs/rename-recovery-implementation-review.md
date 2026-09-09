@@ -69,3 +69,7 @@ All evidence directories in this table are relative to `work/rename-expert-revie
 The repaired code explicitly maps sparse/permuted completion ports, preserves exact-width binary four-state observations, quarantines malformed/closed runtime transport and generated-netlist compilation failures, and distinguishes disclosed runtime timeout from invariant mismatch. A negative synthesis-process return code is quarantined as infrastructure. These changes address the reviewed attribution concerns within this bounded scope; timeouts still require ordinary campaign resource/context review.
 
 The author's separate matrix records three positives and thirteen negatives. I inspected that summary but did not rerun the entire matrix: the independent reruns above target the demonstrated defects. No model attempts occurred and no task assets or earlier trial outcomes were edited. Freeze consideration remains subject to the author's final structural/isolation packaging evidence and trial operator's actual Harbor preflight.
+
+### Final author handoff reconciliation
+
+After the final `validation.json` handoff, compared every current task test file byte-for-byte with `tests-repaired`: **no differences**. The independent reruns above therefore already cover the final structural gate as well as the repaired semantic paths; no duplicate run was needed. The author may update its pending-rerun status to reference this closure. Actual Harbor launch preflight and difficulty calibration remain outstanding.

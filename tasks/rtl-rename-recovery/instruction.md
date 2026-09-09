@@ -1,6 +1,8 @@
-# R1 rename/retirement recovery: original contract for judge review
+# Repair two-wide rename and retirement recovery
 
-Date: 2026-09-09. Revision: contract-draft-2. **Contract-draft-2 approved for implementation by independent LLM judge; RTL/grader validation remains separate.** Target: 20% pass / 80% failure on gpt-6-astra/high, uncalibrated. This is an original bounded subsystem contract informed by R1 in `hard-task-research.md` and `hard-task-judge.md`, not an implementation of BOOM or an ISA-compliance claim.
+Implement the contract below by editing only `/app/design.sv`, `/app/map_bypass.sv`, and `/app/ownership.sv`. You may reorganize logic among these three original modules; retain the `rename_recovery` top-level interface. The starter compiles but mishandles interacting rename, ownership and completion events. Repeated recovery can lose capacity or expose incorrect operand readiness. No particular internal repair or allocation order is required.
+
+The supplied `smoke.sv` and `README.md` provide a small public check. Private grading is broader and checks the public semantics, not hidden requirements. Reward requires every functional configuration and the disclosed synthesis checks to pass. Difficulty is uncalibrated.
 
 ## Engineer request and scope
 
@@ -125,16 +127,11 @@ Normal retirement of older records commutes with pre-edge rename-map lookup; reb
 3. **Same-destination bundle:** two writers to x2 choose p8 then p9. Their stale outputs are old(x2) and p8. Any lane-1 source x2 receives p8, not p9. Only original old(x2) frees when the first writer retires; p8 frees when the second retires.
 4. **Late killed result:** killed Y had destination p10 and token 7. New Z can reuse p10 with token 8. Completion (7,p10) is consumed but cannot make Z ready. Token 7 cannot be assigned anew until the old completion has been consumed and Y is gone.
 
-## Planned validation and material questions for judge
 
-The external grader will retain an ordered instruction-history ledger driven by candidate-emitted legal allocation tags. It independently derives committed/speculative mappings and the owned set; checks exact acceptance, source/stale/readiness, retirement fields/order, and post-recovery capacity. The reference will not require the oracle's allocator priority or copy checkpoint bitmasks. Two positive implementations must allocate in opposite legal priorities. Directed schedules cover all examples, all six parameter combinations, checkpoint saturation/reuse, token wrap with transport reservations, completion/recovery collisions, partial acceptance, retirement stalls and recovery with two older commits. Reduced exhaustive event histories and seeded stress supplement directed witnesses.
+## Tool and grading contract
 
-Required semantic controls: missing lane bypass; wrong branch boundary; snapshot-only free recovery; lost commit reclamation; physical-tag-only completion; premature stale free; numeric-ID age comparison; permanent one-wide dispatch. Original public smoke test will illustrate the interface without shipping private reference/oracle assets.
+Use the synthesizable SystemVerilog subset accepted by **Yosys 0.23 (Debian 0.23-6)** and Icarus Verilog 11.0 (Debian 11.0-1.1+b1). Every PHYS/ROB combination is elaborated separately. The gate runs `read_verilog -sv`, parameter elaboration, `hierarchy -check`, `proc`, `opt`, `memory`, `check -assert`, and rejects black-box modules and inferred `$dlatch` cells. There is no PPA, clock-frequency, area or formal-equivalence threshold. No simulation-only constructs, testbench detection, external files/includes, or verifier manipulation are permitted. All implementation RTL must reside in the three editable source files, kept as ordinary files rather than symlinks.
 
-The eventual task should enforce synthesizable RTL with a pinned toolchain validated against ordinary alternative implementations; exact tool/version and accepted language subset will be published before the runnable task is frozen. A private controller must compute reward from independently checked transaction observations outside candidate-writable state; a candidate-emitted success string cannot pass. Those tooling details are not yet implemented and no enforcement claim is made. No model trials will be run by the author.
+The verifier simulates only the Yosys-generated netlist in a trusted interface testbench. A separate privileged Python controller independently checks port observations against an instruction-history/ownership ledger; the agent runs as `node`, tool/runtime processes run separately as `nobody`, and only the root verifier can write the reward. Candidate text or success markers cannot establish a pass. Missing or broken toolchain infrastructure is reported separately from candidate synthesis or functional failures. Synthesis has a 180-second limit per configuration; simulator observations have a 30-second resource timeout; the full verifier budget is 1800 seconds. These are execution safety limits, not performance objectives.
 
-Please review: (a) set-based ownership and stale reclamation consistency; (b) no hidden token-age or cancellation assumption; (c) two-wide prefix/resource timing and retirement stability; (d) correctness and feasibility of one-edge recovery; (e) whether separate completion and branch resolution add any unnecessary obligation. Resolve material ambiguities before RTL implementation.
-
-## Contract review history
-
-Draft 2 incorporates the independent judge’s requested retirement lane-compaction rule, canonical no-destination retirement fields, and corrected age wording in trace 2. Judge confirmed the ownership set, allocator freedom, lane boundary, surviving-completion priority and identity lifetime are coherent; draft-2 closure is recorded in `rename-recovery-contract-review.md`.
+Checks include all six finite configurations, exact maximal-prefix admission, arbitrary legal physical allocations, lane bypass, precise commit/recovery, branch boundaries, delayed killed completions, identity wrap under reservations, record compaction under retirement backpressure, and capacity after repeated recovery. The behavioral contract, including late-result lifetime and reset cancellation assumptions, is authoritative.
