@@ -50,4 +50,8 @@ Updated: 2026-09-09. Owner: user. Repository: https://github.com/Nandinitalwar/c
 
 - Frozen reviewed task revision 303f494; reproducible tests/check_mutations.py confirms both oracles, both starters and ten negative controls. First isolated Astra/high trial started successfully after cached dependency image setup.
 
+- Requirements handoff completed: docs/buyer-acceptance-checklist.md separates published historical guidance, project delivery gates and unanswered buyer criteria. It reuses existing primary-source research, records METR's paused bounty, and makes no buyer-acceptance or measured-difficulty claim. Task and trial files were not changed for this milestone.
+
 - User requested visible sidebar workers. Created four separate tasks under Chip-design swarm; this original task remains orchestrator. Worker IDs recorded in SWARM.md. Trial ownership handed over while existing campaigns continue; no duplicate runs launched.
+
+- Follow-up independent LLM judge reviewed the running campaign snapshot (2026-09-09T20:39:53Z: one valid skid success) and wrote docs/expert-followup.md. Frozen functional calibration may continue; synthesis enforcement, independently derived grader checks, reward isolation evidence and completed task-specific calibration remain release gaps. No task assets or model trials were changed by this review.
