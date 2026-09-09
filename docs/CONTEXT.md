@@ -38,3 +38,5 @@ Updated: 2026-09-09. Owner: user. Repository: https://github.com/Nandinitalwar/c
 - Both native and Harbor Docker oracles passed; native starters and eight semantic mutants failed as intended.
 - One isolated gpt-6-astra/high pilot started through Harbor using its standard local Codex authentication route. Calibration still unmeasured.
 - Follow-up inputs requested: buyer/acceptance guidelines, RTL versus NKI mix, calibration budget.
+- User requested an independent chip-design expert LLM judge and a dedicated success-rate/trial-running agent. Both launched; expert review is advisory evidence, separate from deterministic grades and measured success rates.
+- Trial operator assigned ten independent gpt-6-astra/high runs per task, preserving all outcomes and stopping repeated infrastructure problems. It is investigating the existing pilot's slow dependency setup before launching further trials.
